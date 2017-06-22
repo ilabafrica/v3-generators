@@ -59,9 +59,9 @@ use App\Models\\".$modelName.";\n\n";
     $controller.="class ".$modelName."Controller extends Controller\n{\n";
 
     //instantiate the index class
-    $controller.="\tpublic function index()\n\t{\n\n";
-    $controller.="\t  $".strtolower($modelName)."=".$modelName."::orderBy('id', 'ASC')->paginate(20);\n\n";
-    $controller.="\t  return response()->json(".$modelName.");";
+    $controller.="\tpublic function index()\n\t{\n";
+    $controller.="\t\t$".strtolower($modelName)."=".$modelName."::orderBy('id', 'ASC')->paginate(20);\n";
+    $controller.="\t\treturn response()->json(".$modelName.");";
     $controller.="\n\t}\n\n";
     //Store function
     $controller.="
@@ -71,8 +71,7 @@ use App\Models\\".$modelName.";\n\n";
     * @param  \Illuminate\Http\Request
     * @return \Illuminate\Http\Response
     */\n";
-    $controller.="
-    public function store(Request $".""."request)\n\t{\n\n";
+    $controller.="\tpublic function store(Request $".""."request)\n\t{";
     $rules_set="\n";
     $update_fields="\t\t\t$".strtolower($modelName)."=".$modelName."::findorfail($"."id);\n";
     $stored_fields="\t\t\t$".strtolower($modelName)."= new ".$modelName.";\n";
@@ -93,10 +92,9 @@ use App\Models\\".$modelName.";\n\n";
         }
     }
     $controller.="
-        $".""."rules=array(".$rules_set."\n\t\t);
-        ";
-    $controller.="$".""."validator = \\Validator::make($"."request->all(),$"."rules);\n";
-    $controller.="\t\t if ($".""."validator->fails()) {\n";
+        $".""."rules=array(".$rules_set."\n\t\t);";
+    $controller.="\t\t$".""."validator = \\Validator::make($"."request->all(),$"."rules);\n";
+    $controller.="\t\tif ($".""."validator->fails()) {\n";
     $controller.="\t\t\t return response()->json($"."validator);\n\t\t} else {\n";
     $controller.=$stored_fields."\n\t";
     $controller.="\t\ttry{\n";
@@ -117,11 +115,9 @@ use App\Models\\".$modelName.";\n\n";
      * @param  int  id
      * @return \Illuminate\Http\Response
      */";
-    $controller.="
-    public function show($"."id){\n\t\t
-    ";
-    $controller.="  $".strtolower($modelName)."=".$modelName."::findorfails($"."id);\n\n";
-    $controller.="\t  return response()->json($".strtolower($modelName).");";
+    $controller.="public function show($"."id){\n";
+    $controller.="\t\t$".strtolower($modelName)."=".$modelName."::findorfails($"."id);\n";
+    $controller.="\t\treturn response()->json($".strtolower($modelName).");";
     $controller.="\n\t}\n\n";
 
 
@@ -165,12 +161,9 @@ use App\Models\\".$modelName.";\n\n";
      *
      * @param  int  id
      * @return \Illuminate\Http\Response
-     */
-    ";
-    $controller.="
-    public function destroy($"."id){\n\t\t
-    ";
-    $controller.="\ttry{\n";
+     */\n";
+    $controller.="\tpublic function destroy($"."id){\n";
+    $controller.="\t\ttry{\n";
     $controller.="\t\t\t$".strtolower($modelName)."=".$modelName."::findorfails($"."id);\n";
     $controller.="\t\t\t$".strtolower($modelName)."->delete();\n";
     $controller.="\t\t\treturn response()->json($".strtolower($modelName).",200);\n";
