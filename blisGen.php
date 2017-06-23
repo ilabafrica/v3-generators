@@ -7,8 +7,8 @@ include('Pluralizer.php');
 include('UnittestsGen.php');
 $servername = "localhost";
 $username = "root";
-$password = "xp";
-$database= "homestead";
+$password = "password";
+$database= "blisv3";
 
 // Create connection to db
 $conn = new mysqli($servername, $username, $password,$database);

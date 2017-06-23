@@ -69,7 +69,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;';
     //Test Store
     $test.="\n\t}\n\n";
     $test.="\tpublic function testStore".$modelName."()\n\t{\n\t";
-    $test.="\t$"."response="."$"."this->json('POST', '/api/".strtolower($modelName)."');\n\t\t";
+    $test.="\t$"."response="."$"."this->json('POST', '/api/".strtolower($modelName)."',$"."this->".strtolower($modelName)."Data);\n\t\t";
     $test.="$"."this->assertEquals(200,"."$"."response->getStatusCode());\n\t\t";
     $test.='$this->assertArrayHasKey("subject",$response->original));';
     $test.="\n\t}\n\n";
@@ -82,10 +82,10 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;';
 
     //Test show
     
-    $test.="\tpublic function testStore".$modelName."()\n\t{\n\t";
+    $test.="\tpublic function testShow".$modelName."()\n\t{\n\t";
     $test.="\t$"."this->json('POST', '/api/".strtolower($modelName)."',$"."this->".strtolower($modelName)."Data);\n\t";
     
-    $test.="\t$"."response="."$"."this->json('POST', '/api/".strtolower($modelName)."');\n\t\t";
+    $test.="\t$"."response="."$"."this->json('GET', '/api/".strtolower($modelName)."/1');\n\t\t";
     $test.="$"."this->assertEquals(200,"."$"."response->getStatusCode());\n\t\t";
     $test.='$this->assertArrayHasKey("subject",$response->original));';
     $test.="\n\t}\n\n";
