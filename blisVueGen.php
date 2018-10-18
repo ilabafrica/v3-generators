@@ -3,7 +3,8 @@
 // '.$vueComponent['url'].'
 
 $vueComponents=[
-  [
+
+/*  [
     'url' => '/api/location',
     'path' => '/var/www/Blis-V3/resources/assets/js/components/labconfiguration/healthunit.vue',
     'entity' => 'locations',
@@ -21,6 +22,86 @@ $vueComponents=[
       ]
     ],
   ],
+
+
+  [
+    'url' => '/api/permissionrole',
+    'path' => '/var/www/Blis-V3/resources/assets/js/components/accesscontrol/permissions.vue',
+    'entity' => 'permissions',
+    'name' => 'Permissions',
+    'fields' => [
+      [
+        'text'=>'permission_id',
+        'value'=>'permission_id',
+        'init'=>'0',// can be 0 for integer: this one is for string
+      ],
+      [
+        'text'=>'role_id',
+        'value' => 'role_id',
+        'init'=>'0',// can be 0 for integer: this one is for string
+      ]
+    ],
+  ],
+
+  [
+    'url' => '/api/role',
+    'path' => '/var/www/Blis-V3/resources/assets/js/components/accesscontrol/roles.vue',
+    'entity' => 'roles',
+    'name' => 'Roles',
+    'fields' => [
+      [
+        'text'=>'Code',
+        'value'=>'code',
+        'init'=>'\'\'',
+      ],
+      [
+        'text'=>'Name',
+        'value' => 'name',
+        'init'=>'\'\'',
+      ]
+    ],
+  ],
+
+  */
+  [
+    'url' => '/api/test',
+    'path' => '/var/www/Blis-V3/resources/assets/js/components/test/index.vue',
+    'entity' => 'tests',
+    'name' => 'Tests',
+    'fields' => [
+      [
+        'text'=>'Date Ordered',
+        'value'=>'created_at',
+        'init'=>'\'\'',
+      ],
+      [
+        'text'=>'Patient Name',
+        'value'=>'encounter_id',
+        'init'=>'\'\'',
+      ],
+      [
+        'text'=>'Specimen ID',
+        'value'=>'specimen_id',
+        'init'=>'\'\'',
+      ],
+      [
+        'text'=>'Test',
+        'value'=>'test_type_id',
+        'init'=>'\'\'',
+      ],
+      [
+        'text'=>'Visit',
+        'value'=>'encounter_id',
+        'init'=>'\'\'',
+      ],
+      [
+        'text'=>'Status',
+        'value'=>'test_status_id',
+        'init'=>'\'\'',
+      ],
+    ],
+  ],
+
 ];
 
 foreach ($vueComponents as $vueComponent) {

@@ -1,1 +1,0 @@
-Route::resource('specimen', 'SpecimenController');
